@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* Jack Lemieux - Sales microservice
 * Person 2 - Which microservice?
 
 ## Design
