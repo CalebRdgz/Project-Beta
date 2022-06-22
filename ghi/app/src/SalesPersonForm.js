@@ -17,3 +17,4 @@ class SalesPersonForm extends React.Component {
         this.setState({})
     }
 }
+export default SalesPersonForm;
