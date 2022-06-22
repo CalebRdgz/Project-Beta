@@ -34,11 +34,60 @@ function Nav() {
                   Appointments
               </a>
               <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
-                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/appointments/new"> New Appointment</NavLink></li>
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/appointments/new">New Appointment</NavLink></li>
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
                 <li><NavLink className="nav-link bg-dark" aria-current="page" to="/appointments"> Appointments</NavLink></li>
+              </ul>
+              </li>
+              <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sales
+              </a>
+              <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/sales/new-sales-person">New Sales Person</NavLink></li>
+                <li>
+                  <hr className="dropdown-divider"/>
+                </li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales">List of Sales</NavLink></li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales/new-customer">New Customer</NavLink></li>
+              </ul>
+              </li>
+              <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Automobiles
+              </a>
+              <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/automobiles/new">New Automobile</NavLink></li>
+                <li>
+                  <hr className="dropdown-divider"/>
+                </li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/automobiles">Automobile List</NavLink></li>
+              </ul>
+              </li>
+              <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Manufacturers
+              </a>
+              <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/manufacturers/new">New Manufacturer</NavLink></li>
+                <li>
+                  <hr className="dropdown-divider"/>
+                </li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/manufacturers">Manufacturer List</NavLink></li>
+              </ul>
+              </li>
+              <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Models
+              </a>
+              <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/models/new">New Model</NavLink></li>
+                <li>
+                  <hr className="dropdown-divider"/>
+                </li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/models">Model List</NavLink></li>
               </ul>
               </li>
           </ul>
