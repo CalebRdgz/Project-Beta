@@ -1,5 +1,4 @@
-function AppointmentList(props) {
-    console.log(props)
+function AppointmentList(appointments) {
     return (
         <table className="my-5 table table-striped">
             <thead>
@@ -16,7 +15,7 @@ function AppointmentList(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.appointments.map(appointment => {
+                {appointments.appointments.map(appointment => {
                     return (
                         <tr key={appointment.href}>
                             <td>{JSON.stringify(appointment.vip).toUpperCase()}</td>

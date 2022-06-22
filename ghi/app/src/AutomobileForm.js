@@ -7,8 +7,8 @@ class AutomobileForm extends React.Component {
             color: "",
             year: "",
             vin: "",
-            model: "",
-            models: [],
+            model_id: "",
+            model_ids: [],
             hasSignedUp: false,
             
         }
@@ -31,7 +31,7 @@ class AutomobileForm extends React.Component {
         if (response.ok) {
             const data = await response.json();
             console.log(data)
-            this.setState({models: data.models})
+            this.setState({model_ids: data.models})
         }
     }
         
@@ -41,7 +41,7 @@ class AutomobileForm extends React.Component {
         event.preventDefault();
         const data = {...this.state};
         console.log(data);
-        delete data.models;
+        delete data.model_ids;
         delete data.hasSignedUp;
         const autoUrl = 'http://localhost:8100/api/automobiles/'
         const fetchOptions = {
@@ -58,7 +58,7 @@ class AutomobileForm extends React.Component {
                 color: "",
                 year: "",
                 vin: "",
-                model: "",
+                model_id: "",
                 hasSignedUp: true,
                 
             });
@@ -79,7 +79,7 @@ class AutomobileForm extends React.Component {
     }
     handleModelChange(event) {
         const value = event.target.value;
-        this.setState({ model: value });
+        this.setState({ model_id: value });
     }
     
     render() {
@@ -111,9 +111,9 @@ class AutomobileForm extends React.Component {
                             <div className="mb-3">
                                 <select onChange={this.handleModelChange} required name="model" id="model" className="form-select" multiple={false}>
                                 <option value="">Choose A Model</option>
-                                {this.state.models.map(model => {
+                                {this.state.model_ids.map(model => {
                                     return (
-                                        <option key = {model.id} value = {model.name}>{model.name}</option>
+                                        <option key = {model.id} value = {model.id}>{model.name}</option>
                                     )
                                 })}
                                 </select>
