@@ -10,18 +10,36 @@ root.render(
 );
 
 
-async function loadAppointment(){
-  const response = await fetch ('http://localhost:8080/api/appointments/')
-  if (response.ok) {
-    const data = await response.json();
-    console.log(data);
-    root.render(
-      <React.StrictMode>
-        <App appointments ={data.appointment}/>
-      </React.StrictMode>
-    );
-  } else {
-    console.error(response)
+ (async () => {
+    const serviceAppointmentListResponse = await fetch ('http://localhost:8080/api/appointments/');
+    const manufacturerResponse = await fetch ('http://localhost:8100/api/manufacturers/');
+    const vehicleResponse = await fetch ('http://localhost:8100/api/models/');
+    const automobileResponse = await fetch ('http://localhost:8100/api/automobiles/');
+    if (serviceAppointmentListResponse.ok && manufacturerResponse.ok && vehicleResponse.ok && automobileResponse.ok) {
+      const serviceAppointmentListData = await serviceAppointmentListResponse.json();
+      const manufacturerData= await manufacturerResponse.json();
+      const vehicleData = await vehicleResponse.json();
+      const automobileData = await automobileResponse.json();
+      root.render(
+        <React.StrictMode>
+          <App
+          appointments={serviceAppointmentListData}
+          manufactures={manufacturerData}
+          vehicles={vehicleData}
+          automobiles={automobileData}
+          
+          />
+        </React.StrictMode>
+      );
+    } 
+    else {
+      console.error('Index.js Is not receiving responses')
+    }
   }
-}
-loadAppointment();
+)
+();
+  
+  
+
+
+

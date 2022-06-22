@@ -34,7 +34,7 @@ function Nav() {
                   Appointments
               </a>
               <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
-                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/create_appointment"> New Appointment</NavLink></li>
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/appointments/new"> New Appointment</NavLink></li>
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
