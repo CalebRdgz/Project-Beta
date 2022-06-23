@@ -14,8 +14,18 @@ Team:
 
 ## Service microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+The service microservice needs 2 lists, and 2 forms.
+
+The first list is a table that will display the: status of the appointment(allowing the user to update the status with two buttons), the vin, customer name, technician, reason, date, time, and if the car is a “vip” (which means if the vin matches the vin from a car that was sold by the dealership).
+
+The second list is another table that shows the same things (without the buttons) but allows the user to see the service history of a vin. There is a search-bar on the page and will update the page on user input. 
+
+
+The first form is to create a Technician. This will submit and gives access to that object (aka the technician) to the two lists. 
+
+The second form is to create an appointment. The form for this allows the user to create an appointment using the vin (user created , the backend checks if this matches one that was sold from the inventory) , technician (which is a dropdown to choose which technician), date/time (this part was tricky. I had to use charFields for both of these in my model but in the front-end display them as regular date and time types), and the customer name. 
+
+On the front-end I also added success messages to the forms I did to create a better user-experience. 
 
 ## Sales microservice
 

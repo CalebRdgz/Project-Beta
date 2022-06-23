@@ -38,7 +38,11 @@ function Nav() {
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
-                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/appointments"> Appointments</NavLink></li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/appointments">Service Appointments</NavLink></li>
+                <li>
+                  <hr className="dropdown-divider"/>
+                </li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/appointments/history">Service Appointment History</NavLink></li>
               </ul>
               </li>
               <li className="nav-item dropdown">
