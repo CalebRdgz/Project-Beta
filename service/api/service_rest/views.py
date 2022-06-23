@@ -2,8 +2,7 @@
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
-from django.utils import timezone
-import datetime
+
 from django.shortcuts import render
 from common.json import ModelEncoder
 # Create your views here.
@@ -21,13 +20,14 @@ class TechnicianEncoder(ModelEncoder):
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "is_vip"]
+    properties = ["vin", "is_vip", "id"]
     
 
 
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
+    "id",
     "customer",
     "date",
     "time",
@@ -43,9 +43,9 @@ class AppointmentEncoder(ModelEncoder):
     def get_extra_data(self, o):
         try:
             AutomobileVO.objects.get(vin=o.vin)
-            return {"vip": True}
+            return {"vip": "👑"}
         except:
-            return {"vip": False}
+            return {"vip": "❌"}
 
         
 @require_http_methods(["GET"])
@@ -57,6 +57,15 @@ def api_list_vins(request):
             encoder = AutomobileVOEncoder,
             safe=False,
         )
+
+@require_http_methods(["GET"])
+def api_all_appointments(requests):
+    history = Appointment.objects.all()
+    return JsonResponse(
+        history,
+        encoder=AppointmentEncoder,
+        safe=False
+    )
 
 
 #Method for Appointment Lists
@@ -164,3 +173,25 @@ def api_show_technicians(request, pk):
             encoder=TechnicianEncoder,
             safe=False
         )
+
+
+
+@require_http_methods(["PUT"])
+def completed_status(request, pk):
+    stat = Appointment.objects.get(id=pk)
+    stat.completed()
+    return JsonResponse(
+        stat,
+        encoder=AppointmentEncoder,
+        safe=False
+    )
+
+@require_http_methods(["PUT"])
+def cancelled_status(request, pk):
+    status = Appointment.objects.get(id=pk)
+    status.cancelled()
+    return JsonResponse(
+        status,
+        encoder=AppointmentEncoder,
+        safe=False
+    )

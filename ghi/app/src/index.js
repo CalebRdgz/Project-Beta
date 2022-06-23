@@ -15,11 +15,13 @@ root.render(
     const manufacturerResponse = await fetch ('http://localhost:8100/api/manufacturers/');
     const vehicleResponse = await fetch ('http://localhost:8100/api/models/');
     const automobileResponse = await fetch ('http://localhost:8100/api/automobiles/');
-    if (serviceAppointmentListResponse.ok && manufacturerResponse.ok && vehicleResponse.ok && automobileResponse.ok) {
+    const appointmentHistoryResponse = await fetch ('http://localhost:8080/api/history/')
+    if (serviceAppointmentListResponse.ok && manufacturerResponse.ok && vehicleResponse.ok && automobileResponse.ok && appointmentHistoryResponse) {
       const serviceAppointmentListData = await serviceAppointmentListResponse.json();
       const manufacturerData= await manufacturerResponse.json();
       const vehicleData = await vehicleResponse.json();
       const automobileData = await automobileResponse.json();
+      const historyData = await appointmentHistoryResponse.json();
       root.render(
         <React.StrictMode>
           <App
@@ -27,7 +29,7 @@ root.render(
           manufactures={manufacturerData}
           vehicles={vehicleData}
           automobiles={automobileData}
-
+          history={historyData}
           />
         </React.StrictMode>
       );

@@ -8,6 +8,7 @@ class VehicleModelForm extends React.Component {
             picture_url: '',
             manufacturer_id: '',
             manufacturer_ids: [],
+            hasSignedUp: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
@@ -40,7 +41,8 @@ class VehicleModelForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault()
         const data = {...this.state}
-        delete data.manufacturer_ids
+        delete data.manufacturer_ids;
+        delete data.hasSignedUp;
         console.log(data)
         const modelUrl = 'http://localhost:8100/api/models/'
         const fetchConfig = {
@@ -56,15 +58,22 @@ class VehicleModelForm extends React.Component {
                 name: '',
                 picture_url: '',
                 manufacturer_id: '',
+                hasSignedUp: true,
             })
         }
     }
 
     render() {
+        let messageClasses = 'alert alert-success d-none mb-0';
+        let formClasses = '';
+        if (this.state.hasSignedUp) {
+            messageClasses = 'alert alert-success mb-0';
+            formClasses = 'd-none';
+          }
         return (
             <div className="px-4 py-5 my-5 text-center">
                 <h1 className="display-5 fw-bold">Create a Vehicle Model</h1>
-                <form onSubmit={this.handleSubmit} id='create-vehiclemodel-form'>
+                <form className= {formClasses} onSubmit={this.handleSubmit} id='create-vehiclemodel-form'>
                     <div className="form-floating mb-3">
                         <input onChange={this.handleChangeName} name='name' requiredtype='text' id='name' className='form-control' />
                         <label htmlFor='name'>Name</label>
@@ -85,6 +94,9 @@ class VehicleModelForm extends React.Component {
                     </div>
                     <button className="btn btn-primary">Add Vehicle Model</button>
                 </form>
+                <div className={messageClasses} id="success-message">
+                    Congratulations! Your vehicle has been created!
+                </div>
             </div>            
         )
     }
