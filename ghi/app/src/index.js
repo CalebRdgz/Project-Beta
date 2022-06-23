@@ -27,7 +27,7 @@ root.render(
           manufactures={manufacturerData}
           vehicles={vehicleData}
           automobiles={automobileData}
-          
+
           />
         </React.StrictMode>
       );
@@ -38,8 +38,3 @@ root.render(
   }
 )
 ();
-  
-  
-
-
-

@@ -25,9 +25,9 @@ function TechnicianForm(){
             method: "post",
             body: JSON.stringify(data),
             headers: {
-              'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
-          };
+        };
 
         const response = await fetch(technicianUrl, fetchConfig);
         if (response.ok) {

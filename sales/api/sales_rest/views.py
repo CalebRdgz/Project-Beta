@@ -1,23 +1,27 @@
 
 from json import encoder
 import re
+from xml.parsers.expat import model
 from django.http import JsonResponse
 from django.shortcuts import render
 import json
 from django.views.decorators.http import require_http_methods
 from common.json import ModelEncoder
-from .models import SalesPerson, Customer, SalesForm
+from .models import SalesPerson, Customer, SalesForm, AutomobileVO
 
 # Create your views here.
+class AutomobileVOEncoder(ModelEncoder):
+    model = AutomobileVO
+    properties = ['vin']
 
 class SalesPersonListEncoder(ModelEncoder):
     model = SalesPerson
-    properties = ["name"]
+    properties = ["name", "id"]
 
 
 class SalesPersonDetailEncoder(ModelEncoder):
     model = SalesPerson
-    properties = ["name", "employee_number"]
+    properties = ["name", "employee_number", "id"]
 
 
 class CustomerListEncoder(ModelEncoder):
@@ -37,10 +41,22 @@ class CustomerDetailEncoder(ModelEncoder):
 class SalesFormListEncoder(ModelEncoder):
     model = SalesForm
     properties = [
-    "sales_person",
-    "customer",
-    "price"
+    "price",
     ]
+    encoders={
+        'vin': AutomobileVOEncoder(),
+    }
+
+
+@require_http_methods(["GET"])
+def AutomobileVOS(request):
+    if request.method == "GET":
+        automobiles = AutomobileVO.objects.all()
+        return JsonResponse(
+            {'automobiles': automobiles},
+            encoder=AutomobileVOEncoder,
+            safe=False,
+        )
 
 
 @require_http_methods(["GET", "POST"])
@@ -85,9 +101,6 @@ def detail_sales_persons(request, pk):
     else:
         try:
             content = json.loads(request.body)
-            # sales_person_id = content['sales_person_id']
-            # sales_person = SalesPerson.objects.objects.get(id=sales_person_id)
-            # content['sales_person'] = sales_person
             sales_person = SalesPerson.objects.create(**content)
             return JsonResponse(
                 sales_person,
@@ -141,3 +154,30 @@ def detail_customer(request, pk):
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
+
+
+@require_http_methods(['GET', 'POST'])
+def sales(request):
+    if request.method == "GET":
+        sale = SalesForm.objects.all()
+        return JsonResponse(
+            {"sale": sale},
+            encoder = SalesFormListEncoder,
+        )
+    else:
+        content = json.loads(request.body)
+        try:
+            vin = AutomobileVO.objects.get(vin=content['vin'])
+            content['vin'] = vin
+        except AutomobileVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Unable to make sale"},
+                status=400
+            )
+            
+        sale = SalesForm.objects.create(**content)
+        return JsonResponse(
+            sale,
+            encoder = SalesFormListEncoder,
+            safe=False,
+        )
