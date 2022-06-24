@@ -16,9 +16,10 @@ import CustomerForm from './CustomerForm';
 import AppointmentHistoryList from './AppointmentHistory';
 import Sales from './Sales';
 
-function App({appointments, manufactures, vehicles, automobiles, history, sales}) {
-  if(!appointments || !manufactures ||!vehicles || !automobiles || !history || !sales){
-    return null;}
+function App({appointments, manufacturers, vehicles, automobiles, history, sales}) {
+  // if(!appointments || !manufactures ||!vehicles || !automobiles || !history || !sales){
+  //   return null;}
+  console.log(appointments)
   return (
     <>
     <BrowserRouter>
@@ -36,9 +37,9 @@ function App({appointments, manufactures, vehicles, automobiles, history, sales}
             <Route path="new" element={<AutomobileForm />} />
             <Route path="" element={<AutomobileList automobiles={automobiles.autos} />} />
           </Route>
-          <Route path = "manufactures">
+          <Route path = "manufacturers">
             <Route path="new" element={<ManufacturerForm />} />
-            <Route path="" element={<Manufacturers manufacturers={manufactures} />} />
+            <Route path="" element={<Manufacturers manufacturers={manufacturers} />} />
           </Route>
           <Route path = "models">
             <Route path="new" element={<VehicleModelForm />} />
