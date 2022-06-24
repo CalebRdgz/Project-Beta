@@ -1,5 +1,12 @@
-function Manufacturers(props) {
+function Manufacturers(manufacturers) {
+    console.log(manufacturers)
     return (
+        <div>
+            <div className='row' style={{paddingTop: '70px', paddingBottom: '20px'}}>
+                <div className="container">
+                    <h1>Vehicle Models</h1>
+            </div>
+        </div>
         <table className="table table-striped">
             <thead>
                 <tr>
@@ -7,7 +14,7 @@ function Manufacturers(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.manufacturers.map(manufacturer => {
+                {manufacturers.manufacturers.manufacturers.map(manufacturer => {
                     return (
                         <tr key={manufacturer.href}>
                             <td>{manufacturer.name}</td>
@@ -16,6 +23,7 @@ function Manufacturers(props) {
                 })}
             </tbody>
         </table>
+    </div>
     )
 }
 

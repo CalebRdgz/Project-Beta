@@ -18,9 +18,9 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="navbar-brand" to="/">Home</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">Link</a>
-            </li>
+            </li> */}
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Technicians
@@ -54,7 +54,7 @@ function Nav() {
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
-                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales">List of Sales</NavLink></li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales/new-sale">New Sale</NavLink></li>
                 <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales/new-customer">New Customer</NavLink></li>
               </ul>
               </li>
@@ -75,11 +75,11 @@ function Nav() {
                   Manufacturers
               </a>
               <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
-                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/manufacturers/new">New Manufacturer</NavLink></li>
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/manufactures/new">New Manufacturer</NavLink></li>
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
-                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/manufacturers">Manufacturer List</NavLink></li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/manufactures">Manufacturer List</NavLink></li>
               </ul>
               </li>
               <li className="nav-item dropdown">

@@ -26,7 +26,7 @@ root.render(
         <React.StrictMode>
           <App
           appointments={serviceAppointmentListData}
-          manufactures={manufacturerData}
+          manufacturers={manufacturerData}
           vehicles={vehicleData}
           automobiles={automobileData}
           history={historyData}
