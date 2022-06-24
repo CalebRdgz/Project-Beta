@@ -19,7 +19,7 @@ import Sales from './Sales';
 function App({appointments, manufacturers, vehicles, automobiles, history, sales}) {
   // if(!appointments || !manufactures ||!vehicles || !automobiles || !history || !sales){
   //   return null;}
-  console.log(appointments)
+
   return (
     <>
     <BrowserRouter>

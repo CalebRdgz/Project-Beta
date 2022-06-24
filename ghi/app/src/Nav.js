@@ -51,7 +51,7 @@ function Nav() {
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
-                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales">Create a New Sale</NavLink></li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales/new-sale">Create a New Sale</NavLink></li>
                 <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales/new-customer">New Customer</NavLink></li>
                 <li><NavLink className="nav-link bg-dark" aria-current="page" to="/sales/sales-list">Sales History</NavLink></li>
               </ul>
