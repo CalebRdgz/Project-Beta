@@ -11,7 +11,7 @@ Team:
 
 
 ## Design
-
+Look at Excalidraw.png for design. 
 ## Service microservice
 
 The service microservice needs 2 lists, and 2 forms.
@@ -29,6 +29,10 @@ On the front-end I also added success messages to the forms I did to create a be
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
-Three forms need to be created for Sales Microservice. The sales person form will include a name and an employee number. They will be allowed to set a sold status/move cars in the inviintory to a seperate list, stopping it from being sold/seen in the inventory. Potential customer form will include a name, their address, and a phone number. They will be attached to the sold status/list of a vehicle if they purchase it. Lastly, a sale record form will be added allowing a sales person to mark a car as sold/in the sold list. It will also have mandetory feilds for customer and sales person as well as a recorded price which will be stored in app. These three forms will have Nav Bar links that will be part of the SPA. 
+Three forms need to be created for Sales Microservice. The sales person form will include a name and an employee number. Potential customer form will include a name, their address, and a phone number. They will be attached to the sold status/list of a vehicle if they purchase it. Lastly, a sale record form will be added allowing a sales person to mark a car as sold. It will also have mandetory feilds for customer and sales person as well as a recorded price which will be stored in app. These three forms will have Nav Bar links that will be part of the SPA.
+
+These forms ended up being fairly simple until I tried to implement the SalesForm. Using multiple foreign key relationships caused some errors but the real issue was applying the Sold class to the form and making the vin field a OnetoOne so their could not be repeats. 
+
+The full list of the sales was also easy enough once we implemented the data in the index.js. What was really hard was having the sales list populate the full list after I implemented the dropdown selector. This kept auto filling to the first Sales Rep until I set a base option before my mapping in the dropdown. It turned out much cleaner than anticipated but this was by far the hardest part of the project.  
+
+
