@@ -12,7 +12,8 @@ Team:
 
 ## Design
 
-## Service microservice
+## Service microservice: Cooper Edmondson
+(To make the code work on the service end 3 objects must be created within the admin. On the service part , create three objects: 1: "SUBMITTED", 2: "COMPLETED", 3: "CANCELLED" . THis allows for the buttons to work, and for them to change the state of the appointment. Once the button is clicked, refresh the page and everything should work properly!)
 
 The service microservice needs 2 lists, and 2 forms.
 
