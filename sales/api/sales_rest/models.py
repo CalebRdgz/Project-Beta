@@ -31,7 +31,7 @@ class Customer(models.Model):
 class SalesForm(models.Model):
     sales_person = models.ForeignKey(SalesPerson, on_delete=models.PROTECT, null=True)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True)
-    vin = models.ForeignKey(
+    vin = models.OneToOneField(
         AutomobileVO,
         related_name="+",
         on_delete=models.PROTECT,
@@ -39,8 +39,8 @@ class SalesForm(models.Model):
     )
     price = models.PositiveIntegerField()
     
-    def __str__(self):
-        return self.vin
+    # def __str__(self):
+    #     return self.vin
 
     def sold_car(self):
         try:

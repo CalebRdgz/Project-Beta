@@ -1,9 +1,5 @@
-
-from json import encoder
-import re
 from xml.parsers.expat import model
 from django.http import JsonResponse
-from django.shortcuts import render
 import json
 from django.views.decorators.http import require_http_methods
 from common.json import ModelEncoder
@@ -41,11 +37,17 @@ class CustomerDetailEncoder(ModelEncoder):
 class SalesFormListEncoder(ModelEncoder):
     model = SalesForm
     properties = [
-    "price",
+    'price',
+    'customer',
+    'sales_person',
+    'vin',
     ]
     encoders={
-        'vin': AutomobileVOEncoder(),
+        'sales_person': SalesPersonListEncoder(),
+        'customer': CustomerListEncoder(),
     }
+    def get_extra_data(self, o):
+        return {"vin": o.vin.vin}
 
 
 @require_http_methods(["GET"])
@@ -166,15 +168,12 @@ def sales(request):
         )
     else:
         content = json.loads(request.body)
-        try:
-            vin = AutomobileVO.objects.get(vin=content['vin'])
-            content['vin'] = vin
-        except AutomobileVO.DoesNotExist:
-            return JsonResponse(
-                {"message": "Unable to make sale"},
-                status=400
-            )
-            
+        content = {
+            **content,
+            "sales_person": SalesPerson.objects.get(name=content["sales_person"]),
+            "customer": Customer.objects.get(name=content["customer"]),
+            "vin": AutomobileVO.objects.get(vin=content["vin"]),
+        }
         sale = SalesForm.objects.create(**content)
         return JsonResponse(
             sale,

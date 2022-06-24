@@ -14,9 +14,10 @@ import VehicleModelForm from './VehicleModelForm';
 import VehicleModels from './VehicleModels';
 import CustomerForm from './CustomerForm';
 import AppointmentHistoryList from './AppointmentHistory';
+import Sales from './Sales';
 
-function App({appointments, manufactures, vehicles, automobiles, history}) {
-  if(!appointments || !manufactures ||!vehicles || !automobiles || !history){
+function App({appointments, manufactures, vehicles, automobiles, history, sales}) {
+  if(!appointments || !manufactures ||!vehicles || !automobiles || !history || !sales){
     return null;}
     
   return (
@@ -48,6 +49,7 @@ function App({appointments, manufactures, vehicles, automobiles, history}) {
             <Route path="new-sales-person" element={<SalesPersonForm />} />
             <Route path="" element={<SaleForm />} />
             <Route path="new-customer" element={<CustomerForm />} />
+            <Route path="sales-list" element={<Sales sales={sales}/>} />
           </Route>
         </Routes>
       </div>

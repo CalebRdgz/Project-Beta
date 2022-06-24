@@ -81,7 +81,7 @@ class SaleForm extends React.Component {
             <div className = "row">
                 <div className='offset-3 col-6'>
                     <div className = "shadow p-4 mt-4">
-                        <h1> Create A New Customer! </h1>
+                        <h1> Create A New Sale! </h1>
                         <form onSubmit={this.handleSubmit} id ="create-customer-form">
                             <div className="mb-3">
                                 <select onChange={this.handleChangeSalesPerson} required name="sales_person" id="sales_person" className="form-select">
