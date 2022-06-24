@@ -6,6 +6,7 @@ export default function Sales({sales}) {
     let [salesPersons, setSalesPersons] = useState([])
     let [personData, setPersonData] = useState('')
     
+    console.log(salesPersons)
     useEffect(() => {
         fetch('http://localhost:8090/api/salespersons/')
         .then(res => res.json())
