@@ -11,16 +11,15 @@ function AppointmentHistoryList(history) {
     return (
         
         <div>
-            
-            <div className='row' style={{paddingTop: '70px', paddiingBottom: '20px'}}>
+            <div className='row' style={{paddingTop: '70px', paddingBottom: '20px'}}>
                 <div className="container">
                 <h1>Service History</h1>
-                    <div className='row' style={{paddingTop: '40px', paddiingBottom: '10px'}}>
+                    <div className='row' style={{paddingTop: '40px', paddingBottom: '10px'}}>
                         <form id = 'form_search_history' name='form_search_history' method='get' action ='' className="form-inline">
                             <div className='form-group'>
                                 <div className='form-group'>
                                     <input onChange={e=> setSearchBar(e.target.value)} className='form-control' placeholder='Please enter a vin' type='text'/>
-                                    <div></div>
+                                    
                                 </div>
                             </div>
                         </form>

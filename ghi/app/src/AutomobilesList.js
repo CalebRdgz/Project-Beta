@@ -1,5 +1,11 @@
 function AutomobileList(automobiles) {
     return (
+        <div>
+            <div className='row' style={{paddingTop: '80px'}}>
+                <div className="container">
+                    <h1>Automobiles</h1>
+            </div>
+        </div>
         <table className="my-5 table table-striped">
             <thead>
                 <tr>
@@ -25,6 +31,7 @@ function AutomobileList(automobiles) {
                 })}
             </tbody>
         </table>
+    </div>
     )
 }
 export default AutomobileList;

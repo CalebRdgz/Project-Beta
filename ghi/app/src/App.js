@@ -19,7 +19,6 @@ import Sales from './Sales';
 function App({appointments, manufactures, vehicles, automobiles, history, sales}) {
   if(!appointments || !manufactures ||!vehicles || !automobiles || !history || !sales){
     return null;}
-    
   return (
     <>
     <BrowserRouter>
@@ -39,15 +38,15 @@ function App({appointments, manufactures, vehicles, automobiles, history, sales}
           </Route>
           <Route path = "manufactures">
             <Route path="new" element={<ManufacturerForm />} />
-            <Route path="" element={<Manufacturers />} />
+            <Route path="" element={<Manufacturers manufacturers={manufactures} />} />
           </Route>
           <Route path = "models">
             <Route path="new" element={<VehicleModelForm />} />
-            <Route path="" element={<VehicleModels />} />
+            <Route path="" element={<VehicleModels vehicles={vehicles}/>} />
           </Route>
           <Route path = "sales">
             <Route path="new-sales-person" element={<SalesPersonForm />} />
-            <Route path="" element={<SaleForm />} />
+            <Route path="new-sale" element={<SaleForm />} />
             <Route path="new-customer" element={<CustomerForm />} />
             <Route path="sales-list" element={<Sales sales={sales}/>} />
           </Route>

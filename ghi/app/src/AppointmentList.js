@@ -38,6 +38,12 @@ function AppointmentList(appointments) {
     
 
     return (
+        <div>
+            <div className='row' style={{paddingTop: '70px'}}>
+                <div className="container">
+                    <h1>Service Appointments</h1>
+            </div>
+        </div>
         <table className="my-5 table table-striped">
             <thead>
                 <tr>
@@ -71,6 +77,7 @@ function AppointmentList(appointments) {
                 })}
             </tbody>
         </table>
+        </div>
     )
 }
 export default AppointmentList;

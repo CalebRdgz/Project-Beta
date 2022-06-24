@@ -1,6 +1,13 @@
-function VehicleModels(props) {
+function VehicleModels(vehicles) {
+    console.log(vehicles);
     return (
-        <table className="table table-striped">
+        <div>
+            <div className='row' style={{paddingTop: '70px', paddingBottom: '20px'}}>
+                <div className="container">
+                    <h1>Vehicle Models</h1>
+            </div>
+        </div>
+        <table className="my-5 table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -9,16 +16,18 @@ function VehicleModels(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.models.map(model => {
+                {vehicles.vehicles.models.map(model => {
                     return (
                         <tr key={model.href}>
                             <td>{model.name}</td>
-                            <td>{model.bins}</td>
+                            <td>{model.manufacturer.name}</td>
+                            <td><img src={model.picture_url} width={350} height={200}/></td>
                         </tr>
                     )
                 })}
             </tbody>
         </table>
+    </div>
     )
 }
 

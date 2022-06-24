@@ -76,11 +76,11 @@ function Nav() {
                   Manufacturers
               </a>
               <ul className="dropdown-menu bg-dark" aria-labelledby="offcanvasNavbarDropdown">
-                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/manufacturers/new">New Manufacturer</NavLink></li>
+                <li><NavLink className="nav-link bg-dark " aria-current="page" to="/manufactures/new">New Manufacturer</NavLink></li>
                 <li>
                   <hr className="dropdown-divider"/>
                 </li>
-                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/manufacturers">Manufacturer List</NavLink></li>
+                <li><NavLink className="nav-link bg-dark" aria-current="page" to="/manufactures">Manufacturer List</NavLink></li>
               </ul>
               </li>
               <li className="nav-item dropdown">
