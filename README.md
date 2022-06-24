@@ -3,16 +3,16 @@
 Team:
 
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice? Cooper Edmondson (Service)
 
 * Jack Lemieux - Sales microservice
-* Person 2 - Which microservice?
+* Cooper Edmondson - Services microservice
 
 
 ## Design
 Look at Excalidraw.png for design. 
-## Service microservice
+
+## Service microservice: Cooper Edmondson
+(To make the code work on the service end 3 objects must be created within the admin. On the service part , create three objects: 1: "SUBMITTED", 2: "COMPLETED", 3: "CANCELLED" . THis allows for the buttons to work, and for them to change the state of the appointment. Once the button is clicked, refresh the page and everything should work properly!)
 
 The service microservice needs 2 lists, and 2 forms.
 
@@ -27,7 +27,7 @@ The second form is to create an appointment. The form for this allows the user t
 
 On the front-end I also added success messages to the forms I did to create a better user-experience. 
 
-## Sales microservice
+## Sales microservice: Jack Lemieux
 
 Three forms need to be created for Sales Microservice. The sales person form will include a name and an employee number. Potential customer form will include a name, their address, and a phone number. They will be attached to the sold status/list of a vehicle if they purchase it. Lastly, a sale record form will be added allowing a sales person to mark a car as sold. It will also have mandetory feilds for customer and sales person as well as a recorded price which will be stored in app. These three forms will have Nav Bar links that will be part of the SPA.
 
